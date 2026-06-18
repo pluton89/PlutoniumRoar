@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>plutoniumROAR | Gaming Portfolio</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Segoe UI', Roboto, sans-serif; background-color: #080808; color: #ccc; line-height: 1.6; }
+        
+        nav { display: flex; justify-content: space-between; padding: 30px 10%; background: #0f0f0f; }
+        .logo { font-weight: 900; font-size: 1.5rem; color: #00ffcc; text-transform: uppercase; letter-spacing: 3px; }
+        nav ul { display: flex; list-style: none; }
+        nav ul li { margin-left: 30px; }
+        nav a { text-decoration: none; color: #fff; font-weight: bold; transition: 0.3s; }
+        nav a:hover { color: #00ffcc; }
+
+        section { padding: 80px 10%; }
+        h2 { font-size: 2rem; color: #fff; margin-bottom: 50px; text-transform: uppercase; letter-spacing: 2px; }
+
+        /* Bouton Demande Projet */
+        .btn-main { 
+            display: block; 
+            width: fit-content; 
+            margin: 0 auto 50px auto; 
+            padding: 15px 40px; 
+            background: #00ffcc; 
+            color: #000; 
+            text-decoration: none; 
+            font-weight: 900; 
+            border-radius: 5px; 
+            text-transform: uppercase;
+            transition: 0.3s;
+        }
+        .btn-main:hover { background: #fff; }
+
+        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 40px; }
+        .card { 
+            background: linear-gradient(145deg, #121212, #1a1a1a);
+            padding: 40px; 
+            border-radius: 12px; 
+            border-top: 4px solid #00ffcc;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+        }
+        .card h3 { color: #fff; margin-bottom: 15px; }
+        .btn-card { display: inline-block; padding: 12px 25px; border: 1px solid #00ffcc; color: #00ffcc; text-decoration: none; font-weight: bold; border-radius: 4px; }
+
+        .support-info { font-size: 1.2rem; color: #888; }
+        .support-info span { color: #fff; font-weight: bold; margin-right: 15px; }
+        .support-info div { margin-bottom: 10px; }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <div class="logo">plutoniumROAR</div>
+        <ul>
+            <li><a href="#projets">PROJETS</a></li>
+            <li><a href="#support">SUPPORT</a></li>
+        </ul>
+    </nav>
+
+    <section id="projets">
+        <h2>Mes Projets</h2>
+        
+        <a href="https://pluton89.github.io/demande-de-projet/" class="btn-main">Demande de projet</a>
+
+        <div class="grid">
+            <div class="card">
+                <h3>BUILD 3D MC</h3>
+                <p>Outil de construction 3D pour Minecraft.</p>
+                <br>
+                <a href="https://pluton89.github.io/BUILD-HELPER-MC-3D/" target="_blank" class="btn-card">VOIR LE PROJET</a>
+            </div>
+            <div class="card"><h3>PROJET B</h3><p>En cours de développement.</p></div>
+            <div class="card"><h3>PROJET C</h3><p>En cours de développement.</p></div>
+            <div class="card"><h3>PROJET D</h3><p>En cours de développement.</p></div>
+            <div class="card"><h3>PROJET E</h3><p>En cours de développement.</p></div>
+            <div class="card"><h3>PROJET F</h3><p>En cours de développement.</p></div>
+            <div class="card"><h3>PROJET G</h3><p>En cours de développement.</p></div>
+            <div class="card"><h3>PROJET H</h3><p>En cours de développement.</p></div>
+        </div>
+    </section>
+
+    <section id="support">
+        <h2>Support</h2>
+        <div class="support-info">
+            <div><span>EMAIL:</span> kakahuette89@gmail.com</div>
+            <div><span>DISCORD:</span> plutoniumroar</div>
+        </div>
+    </section>
+
+</body>
+</html>
