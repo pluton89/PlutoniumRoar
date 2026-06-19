@@ -15,6 +15,52 @@
             line-height: 1.6;
             background-image: radial-gradient(circle at top right, rgba(0, 255, 204, 0.05), transparent 40%),
                               radial-gradient(circle at bottom left, rgba(157, 0, 255, 0.05), transparent 40%);
+            position: relative;
+            overflow-x: hidden;
+        }
+
+        /* --- CONTENEUR DES LOGOS ANIMÉS EN ARRIÈRE-PLAN --- */
+        .bg-animation {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1; /* Reste impérativement derrière tout le contenu */
+            pointer-events: none; /* Empêche de bloquer les clics sur le site */
+            overflow: hidden;
+        }
+
+        .bg-animation i {
+            position: absolute;
+            bottom: -100px;
+            color: rgba(0, 255, 204, 0.15); /* Couleur calquée sur ton thème néon (très transparent) */
+            text-shadow: 0 0 10px rgba(0, 255, 204, 0.2);
+            animation: floatUp linear infinite;
+        }
+
+        /* Différentes tailles et positions pour un effet naturel */
+        .bg-animation i:nth-child(1) { left: 10%; font-size: 5rem; animation-duration: 18s; animation-delay: 0s; }
+        .bg-animation i:nth-child(2) { left: 25%; font-size: 3rem; animation-duration: 22s; animation-delay: 4s; opacity: 0.6; }
+        .bg-animation i:nth-child(3) { left: 45%; font-size: 6rem; animation-duration: 25s; animation-delay: 2s; color: rgba(157, 0, 255, 0.12); text-shadow: 0 0 10px rgba(157, 0, 255, 0.2); } /* Teinte violette */
+        .bg-animation i:nth-child(4) { left: 65%; font-size: 4rem; animation-duration: 20s; animation-delay: 8s; }
+        .bg-animation i:nth-child(5) { left: 85%; font-size: 5.5rem; animation-duration: 28s; animation-delay: 1s; color: rgba(157, 0, 255, 0.12); text-shadow: 0 0 10px rgba(157, 0, 255, 0.2); }
+
+        @keyframes floatUp {
+            0% {
+                transform: translateY(0) rotate(0deg);
+                opacity: 0;
+            }
+            10% {
+                opacity: 1;
+            }
+            90% {
+                opacity: 1;
+            }
+            100% {
+                transform: translateY(-120vh) rotate(360deg);
+                opacity: 0;
+            }
         }
         
         nav { 
@@ -264,6 +310,14 @@
     </style>
 </head>
 <body>
+
+    <div class="bg-animation">
+        <i class="fa-brands fa-playstation"></i>
+        <i class="fa-brands fa-playstation"></i>
+        <i class="fa-brands fa-playstation"></i>
+        <i class="fa-brands fa-playstation"></i>
+        <i class="fa-brands fa-playstation"></i>
+    </div>
 
     <nav>
         <div class="logo">plutoniumROAR</div>
