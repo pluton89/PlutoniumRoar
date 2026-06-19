@@ -35,15 +35,36 @@
         .btn-main:hover { background: #fff; }
 
         .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 40px; }
+        
+        /* Alignement symétrique forcé grâce à display: table */
         .card { 
             background: linear-gradient(145deg, #121212, #1a1a1a);
             padding: 40px; 
             border-radius: 12px; 
             border-top: 4px solid #00ffcc;
             box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+            display: block;
+            position: relative;
+            min-height: 250px; /* Aligne la hauteur minimale des cartes */
         }
         .card h3 { color: #fff; margin-bottom: 15px; }
-        .btn-card { display: inline-block; padding: 12px 25px; border: 1px solid #00ffcc; color: #00ffcc; text-decoration: none; font-weight: bold; border-radius: 4px; }
+        .card p { margin-bottom: 60px; } /* Laisse de l'espace pour le bouton en bas */
+        
+        .btn-card { 
+            display: inline-block; 
+            padding: 12px 25px; 
+            border: 1px solid #00ffcc; 
+            color: #00ffcc; 
+            text-decoration: none; 
+            font-weight: bold; 
+            border-radius: 4px;
+            position: absolute;
+            bottom: 40px;
+            left: 40px;
+            text-transform: uppercase;
+            transition: 0.3s;
+        }
+        .btn-card:hover { background: #00ffcc; color: #000; }
 
         .support-info { font-size: 1.2rem; color: #888; }
         .support-info div { margin-bottom: 15px; }
@@ -73,16 +94,37 @@
             <div class="card">
                 <h3>BUILD 3D MC</h3>
                 <p>Outil de construction 3D pour Minecraft.</p>
-                <br>
-                <a href="https://pluton89.github.io/BUILD-HELPER-MC-3D/" target="_blank" class="btn-card">VOIR LE PROJET</a>
+                <a href="https://pluton89.github.io/BUILD-HELPER-MC-3D/" target="_blank" class="btn-card">VOIR LE SITE</a>
             </div>
-            <div class="card"><h3>PROJET B</h3><p>En cours de développement.</p></div>
-            <div class="card"><h3>PROJET C</h3><p>En cours de développement.</p></div>
-            <div class="card"><h3>PROJET D</h3><p>En cours de développement.</p></div>
-            <div class="card"><h3>PROJET E</h3><p>En cours de développement.</p></div>
-            <div class="card"><h3>PROJET F</h3><p>En cours de développement.</p></div>
-            <div class="card"><h3>PROJET G</h3><p>En cours de développement.</p></div>
-            <div class="card"><h3>PROJET H</h3><p>En cours de développement.</p></div>
+            <div class="card">
+                <h3>Tracker Crypto</h3>
+                <p>Une IA intégrée traque le marché crypto en temps réel pour détecter les tendances en hausse comme en baisse.</p>
+                <a href="https://pluton89.github.io/Tracker-Crypto/" target="_blank" class="btn-card">VOIR LE SITE</a>
+            </div>
+            <div class="card">
+                <h3>PROJET C</h3>
+                <p>En cours de développement.</p>
+            </div>
+            <div class="card">
+                <h3>PROJET D</h3>
+                <p>En cours de développement.</p>
+            </div>
+            <div class="card">
+                <h3>PROJET E</h3>
+                <p>En cours de développement.</p>
+            </div>
+            <div class="card">
+                <h3>PROJET F</h3>
+                <p>En cours de développement.</p>
+            </div>
+            <div class="card">
+                <h3>PROJET G</h3>
+                <p>En cours de développement.</p>
+            </div>
+            <div class="card">
+                <h3>PROJET H</h3>
+                <p>En cours de développement.</p>
+            </div>
         </div>
     </section>
 
