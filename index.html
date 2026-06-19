@@ -144,8 +144,8 @@
             display: flex;
             flex-direction: column;
             justify-content: space-between;
-            align-items: center; /* Centrage ajouté */
-            text-align: center;  /* Centrage ajouté */
+            align-items: center; 
+            text-align: center;  
             min-height: 340px;
             transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
             position: relative;
@@ -158,9 +158,24 @@
             box-shadow: 0 15px 40px rgba(0, 255, 204, 0.1);
         }
         
-        .card-content { display: flex; flex-direction: column; gap: 18px; align-items: center; } /* Alignement ajouté */
+        .card-content { display: flex; flex-direction: column; gap: 18px; align-items: center; width: 100%; } 
         .card h3 { color: #fff; font-size: 1.4rem; font-weight: 800; }
         .card p { color: #94a3b8; font-size: 0.95rem; }
+        
+        /* UNIQUE TEXTE "PUB" EN ROUGE ANIMÉ */
+        .pub-bounce-red {
+            color: #ff4a4a !important;
+            font-weight: 900;
+            letter-spacing: 2px;
+            display: inline-block;
+            animation: textBounce 1.5s infinite ease-in-out;
+            text-transform: uppercase;
+        }
+
+        @keyframes textBounce {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-6px); }
+        }
         
         .btn-card { 
             display: inline-block; 
@@ -253,6 +268,38 @@
         .btn-close-streaming { background: transparent; border: 2px solid #ff4a4a; color: #ff4a4a; padding: 10px 25px; font-weight: bold; border-radius: 6px; cursor: pointer; text-transform: uppercase; font-size: 0.85rem; transition: 0.3s; }
         .btn-close-streaming:hover { background: #ff4a4a; color: #fff; box-shadow: 0 0 15px rgba(255, 74, 74, 0.4); }
 
+        /* VIGNETTE FLOTTANTE TKR RP */
+        .vignette-tkr {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(135deg, #9d00ff, #00ffcc);
+            border-radius: 50%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            z-index: 1500;
+            box-shadow: 0 10px 25px rgba(157, 0, 255, 0.4);
+            transition: all 0.4s ease;
+            border: 2px solid rgba(255, 255, 255, 0.2);
+            animation: bounce 2s infinite;
+        }
+        .vignette-tkr:hover {
+            transform: scale(1.1) rotate(10deg);
+            box-shadow: 0 15px 35px rgba(0, 255, 204, 0.5);
+        }
+        .vignette-tkr i { color: #fff; font-size: 1.5rem; margin-bottom: 2px; }
+        .vignette-tkr span { color: #fff; font-size: 0.65rem; font-weight: 900; letter-spacing: 1px; }
+
+        @keyframes bounce {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+
         @media (max-width: 900px) { nav .update-badge { display: none; } }
     </style>
 </head>
@@ -266,6 +313,11 @@
         <i class="fa-brands fa-playstation"></i>
         <i class="fa-brands fa-playstation"></i>
         <i class="fa-brands fa-playstation"></i>
+    </div>
+
+    <div class="vignette-tkr" id="openTKR">
+        <i class="fa-solid fa-arrow-right"></i>
+        <span>TKR RP</span>
     </div>
 
     <nav>
@@ -296,6 +348,19 @@
         </div>
     </div>
 
+    <div class="streaming-overlay" id="tkrMenu">
+        <div class="streaming-content">
+            <h2>TKR RP</h2>
+            <p style="color: #94a3b8; margin-top: 20px; font-size: 1.1rem;">Nouveau serveur ouvre c'est porte TRK RP click sur le lien pour en savoir plus</p>
+            <div class="streaming-links-grid">
+                <a href="https://pluton89.github.io/Teste-Website-TKR-RP-FIVE-M-/" target="_blank" class="streaming-link-item" style="border-color: #00ffcc; color: #00ffcc;">
+                    <i class="fa-solid fa-ticket"></i> TICKET (VOIR LE SERVEUR)
+                </a>
+            </div>
+            <button class="btn-close-streaming" id="closeTKR">Fermer</button>
+        </div>
+    </div>
+
     <section id="projets">
         <h2>Mes Projets</h2>
         <a href="https://pluton89.github.io/demande-de-projet/" class="btn-main">Demande de projet</a>
@@ -316,14 +381,16 @@
                 </div>
                 <a href="https://pluton89.github.io/Tracker-Crypto/" target="_blank" class="btn-card">VOIR LE SITE</a>
             </div>
+            
             <div class="card">
                 <div class="card-content">
                     <h3>TKR RP FIVE M</h3>
-                    <p>Prévisualisation en cours de développement!</p>
+                    <p class="pub-bounce-red">PUB</p>
                     <div class="update-badge" id="update-Teste-Website-TKR-RP-FIVE-M-">Vérification...</div>
                 </div>
-                <a href="https://pluton89.github.io/Teste-Website-TKR-RP-FIVE-M-/" target="_blank" class="btn-card">VOIR LE SITE</a>
+                <a href="https://pluton89.github.io/Teste-Website-TKR-RP-FIVE-M-/" target="_blank" class="btn-card">rejoin l'aventure</a>
             </div>
+            
             <div class="card"><div class="card-content"><h3>inaccessible</h3><p>En cours...</p><div class="update-badge inactive">En attente</div></div></div>
             <div class="card"><div class="card-content"><h3>inaccessible</h3><p>En cours...</p><div class="update-badge inactive">En attente</div></div></div>
             <div class="card"><div class="card-content"><h3>inaccessible</h3><p>En cours...</p><div class="update-badge inactive">En attente</div></div></div>
@@ -366,6 +433,22 @@
             closeBtn.addEventListener('click', () => {
                 streamingMenu.style.display = 'none';
                 document.body.style.overflow = 'auto'; 
+            });
+        }
+
+        // --- GESTION DU MENU TKR RP ---
+        const tkrMenu = document.getElementById('tkrMenu');
+        const openTKR = document.getElementById('openTKR');
+        const closeTKR = document.getElementById('closeTKR');
+
+        if (openTKR && tkrMenu && closeTKR) {
+            openTKR.addEventListener('click', () => {
+                tkrMenu.style.display = 'flex';
+                document.body.style.overflow = 'hidden';
+            });
+            closeTKR.addEventListener('click', () => {
+                tkrMenu.style.display = 'none';
+                document.body.style.overflow = 'auto';
             });
         }
 
@@ -472,4 +555,5 @@
         });
     </script>
 </body>
+</html>
 </html>
