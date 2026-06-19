@@ -19,6 +19,17 @@
             overflow-x: hidden;
         }
 
+        /* --- CANVAS POUR LA TRAÎNÉE RAINBOW --- */
+        #cursor-canvas {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            z-index: 9999; /* Reste au-dessus mais laisse passer les clics */
+            pointer-events: none;
+        }
+
         /* --- CONTENEUR DES LOGOS ANIMÉS EN ARRIÈRE-PLAN --- */
         .bg-animation {
             position: fixed;
@@ -26,23 +37,22 @@
             left: 0;
             width: 100%;
             height: 100%;
-            z-index: -1; /* Reste impérativement derrière tout le contenu */
-            pointer-events: none; /* Empêche de bloquer les clics sur le site */
+            z-index: -1; 
+            pointer-events: none; 
             overflow: hidden;
         }
 
         .bg-animation i {
             position: absolute;
             bottom: -100px;
-            color: rgba(0, 255, 204, 0.15); /* Couleur calquée sur ton thème néon (très transparent) */
+            color: rgba(0, 255, 204, 0.15); 
             text-shadow: 0 0 10px rgba(0, 255, 204, 0.2);
             animation: floatUp linear infinite;
         }
 
-        /* Différentes tailles et positions pour un effet naturel */
         .bg-animation i:nth-child(1) { left: 10%; font-size: 5rem; animation-duration: 18s; animation-delay: 0s; }
         .bg-animation i:nth-child(2) { left: 25%; font-size: 3rem; animation-duration: 22s; animation-delay: 4s; opacity: 0.6; }
-        .bg-animation i:nth-child(3) { left: 45%; font-size: 6rem; animation-duration: 25s; animation-delay: 2s; color: rgba(157, 0, 255, 0.12); text-shadow: 0 0 10px rgba(157, 0, 255, 0.2); } /* Teinte violette */
+        .bg-animation i:nth-child(3) { left: 45%; font-size: 6rem; animation-duration: 25s; animation-delay: 2s; color: rgba(157, 0, 255, 0.12); text-shadow: 0 0 10px rgba(157, 0, 255, 0.2); } 
         .bg-animation i:nth-child(4) { left: 65%; font-size: 4rem; animation-duration: 20s; animation-delay: 8s; }
         .bg-animation i:nth-child(5) { left: 85%; font-size: 5.5rem; animation-duration: 28s; animation-delay: 1s; color: rgba(157, 0, 255, 0.12); text-shadow: 0 0 10px rgba(157, 0, 255, 0.2); }
 
@@ -311,6 +321,8 @@
 </head>
 <body>
 
+    <canvas id="cursor-canvas"></canvas>
+
     <div class="bg-animation">
         <i class="fa-brands fa-playstation"></i>
         <i class="fa-brands fa-playstation"></i>
@@ -447,6 +459,75 @@
             fetchLastUpdate("Tracker-Crypto", "update-Tracker-Crypto");
             fetchLastUpdate("Teste-Website-TKR-RP-FIVE-M-", "update-Teste-Website-TKR-RP-FIVE-M-");
         });
+
+        // --- SCRIPT DE LA SOURIS RAINBOW ANIMÉE ---
+        const canvas = document.getElementById('cursor-canvas');
+        const ctx = canvas.getContext('2d');
+
+        let particlesArray = [];
+        let hue = 0;
+
+        function resizeCanvas() {
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
+        }
+        window.addEventListener('resize', resizeCanvas);
+        resizeCanvas();
+
+        const mouse = { x: undefined, y: undefined };
+
+        window.addEventListener('mousemove', (event) => {
+            mouse.x = event.clientX;
+            mouse.y = event.clientY;
+            
+            // Crée 2 particules à chaque mouvement pour densifier le tracé
+            for (let i = 0; i < 2; i++) {
+                particlesArray.push(new Particle());
+            }
+        });
+
+        class Particle {
+            constructor() {
+                this.x = mouse.x;
+                this.y = mouse.y;
+                this.size = Math.random() * 6 + 4; // Taille initiale
+                this.speedX = Math.random() * 1 - 0.5; // Dispersion horizontale légère
+                this.speedY = Math.random() * 1 - 0.5; // Dispersion verticale légère
+                this.color = `hsl(${hue}, 100%, 60%)`;
+            }
+            update() {
+                this.x += this.speedX;
+                this.y += this.speedY;
+                if (this.size > 0.2) this.size -= 0.15; // Réduction progressive de la taille
+            }
+            draw() {
+                ctx.fillStyle = this.color;
+                ctx.beginPath();
+                ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+                ctx.fill();
+            }
+        }
+
+        function handleParticles() {
+            for (let i = 0; i < particlesArray.length; i++) {
+                particlesArray[i].update();
+                particlesArray[i].draw();
+                
+                // Supprime la particule quand elle devient invisible
+                if (particlesArray[i].size <= 0.2) {
+                    particlesArray.splice(i, 1);
+                    i--;
+                }
+            }
+        }
+
+        function animate() {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            handleParticles();
+            hue += 2; // Vitesse de changement de la palette arc-en-ciel
+            requestAnimationFrame(animate);
+        }
+        animate();
     </script>
 </body>
 </html>
