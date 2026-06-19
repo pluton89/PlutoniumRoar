@@ -268,6 +268,56 @@
         .btn-close-streaming { background: transparent; border: 2px solid #ff4a4a; color: #ff4a4a; padding: 10px 25px; font-weight: bold; border-radius: 6px; cursor: pointer; text-transform: uppercase; font-size: 0.85rem; transition: 0.3s; }
         .btn-close-streaming:hover { background: #ff4a4a; color: #fff; box-shadow: 0 0 15px rgba(255, 74, 74, 0.4); }
 
+        /* --- NOUVEAU BLOC PROMO GOMINING --- */
+        .promo-gomining-container {
+            display: block;
+            width: fit-content;
+            margin: 0 auto 60px auto;
+            position: relative;
+            text-decoration: none;
+            cursor: pointer;
+            /* Zoom/Dezoom x2 speed (0.8s est très rapide et dynamique) */
+            animation: zoomFast 0.8s infinite ease-in-out;
+            transition: filter 0.3s;
+        }
+
+        .promo-gomining-container:hover {
+            filter: brightness(1.15);
+        }
+
+        .promo-gomining-img {
+            max-width: 380px; /* Taille ajustable selon besoin */
+            width: 100%;
+            border-radius: 16px;
+            border: 2px solid #9d00ff;
+            box-shadow: 0 10px 30px rgba(157, 0, 255, 0.3);
+            display: block;
+        }
+
+        .promo-gomining-text {
+            position: absolute;
+            bottom: -15px; /* Fait dépasser le texte sous l'image */
+            left: 50%;
+            transform: translateX(-50%);
+            background: linear-gradient(135deg, #ff4a4a, #9d00ff);
+            color: #fff;
+            padding: 8px 24px;
+            border-radius: 30px;
+            font-weight: 900;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            font-size: 0.95rem;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.6);
+            white-space: nowrap;
+            z-index: 10;
+        }
+
+        @keyframes zoomFast {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.05); } /* Valeur de zoom */
+        }
+        /* ----------------------------------- */
+
         @media (max-width: 900px) { nav .update-badge { display: none; } }
     </style>
 </head>
@@ -363,6 +413,10 @@
     </section>
 
     <section id="support">
+        <a href="https://gomining.com/?ref=11TSn" target="_blank" class="promo-gomining-container">
+            <img src="Gomining.jpeg" alt="Promotion GoMining" class="promo-gomining-img">
+            <span class="promo-gomining-text">Promotion</span>
+        </a>
         <h2>Support</h2>
         <div class="support-info">
             <div><span>EMAIL:</span> kakahuette89@gmail.com</div>
@@ -491,7 +545,7 @@
                 ctx.globalAlpha = this.opacity;
                 ctx.fillStyle = this.color;
                 ctx.font = `${this.size}px "Font Awesome 6 Brands"`;
-                ctx.fillText('', -this.size / 2, this.size / 2);
+                ctx.fillText('\uf3df', -this.size / 2, this.size / 2);
                 ctx.restore();
             }
         }
