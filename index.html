@@ -128,6 +128,7 @@
             font-size: 0.85rem;
             transition: 0.3s;
             margin-top: 25px;
+            align-self: center; /* Cette ligne centre le bouton horizontalement */
         }
         .btn-card:hover { background: #00ffcc; color: #000; box-shadow: 0 0 20px rgba(0, 255, 204, 0.4); }
 
@@ -191,7 +192,7 @@
     <nav>
         <div class="logo">plutoniumROAR</div>
         
-        <div class="update-badge" id="">Site web à jour</div>
+        <div class="update-badge" id="update-site">Vérification...</div>
         
         <ul>
             <li><a href="#projets">PROJETS</a></li>
@@ -209,7 +210,7 @@
                 <div class="card-content">
                     <h3>BUILD 3D MC</h3>
                     <p>Outil de construction 3D pour Minecraft.</p>
-                    <div class="update-badge" id="update-BUILD-HELPER-MC-3D">A JOUR DEPUIS Vérification...</div>
+                    <div class="update-badge" id="update-BUILD-HELPER-MC-3D">Vérification...</div>
                 </div>
                 <a href="https://pluton89.github.io/BUILD-HELPER-MC-3D/" target="_blank" class="btn-card">VOIR LE SITE</a>
             </div>
@@ -218,7 +219,7 @@
                 <div class="card-content">
                     <h3>Tracker Crypto</h3>
                     <p>IA de tracking marché crypto temps réel.</p>
-                    <div class="update-badge" id="update-Tracker-Crypto">A JOUR DEPUIS Vérification...</div>
+                    <div class="update-badge" id="update-Tracker-Crypto">Vérification...</div>
                 </div>
                 <a href="https://pluton89.github.io/Tracker-Crypto/" target="_blank" class="btn-card">VOIR LE SITE</a>
             </div>
@@ -244,7 +245,7 @@
     <script>
         const githubUsername = "pluton89";
 
-        async function fetchLastUpdate(repoName, elementId, prefix = "") {
+        async function fetchLastUpdate(repoName, elementId) {
             const badge = document.getElementById(elementId);
             if (!badge) return;
             
@@ -258,16 +259,14 @@
                 const dateFormatee = updateDate.toLocaleDateString('fr-FR', { day: '2-digit', month: '2-digit', year: 'numeric' });
                 const heureFormatee = updateDate.toLocaleTimeString('fr-FR', { hour: '2-digit', minute: '2-digit' });
 
-                badge.innerHTML = `${prefix} le ${dateFormatee} à ${heureFormatee}`;
+                badge.innerHTML = `A jour le ${dateFormatee} à ${heureFormatee}`;
             } catch (error) {
-                badge.innerText = "Non disponible";
+                badge.innerText = "Web à jour";
             }
         }
 
         window.addEventListener('DOMContentLoaded', () => {
-            // Appel de l'API avec le préfixe configuré selon tes consignes
-            fetchLastUpdate("pluton89.github.io", "update-site", "Site web à jour :");
-
+            fetchLastUpdate("pluton89.github.io", "update-site");
             fetchLastUpdate("BUILD-HELPER-MC-3D", "update-BUILD-HELPER-MC-3D");
             fetchLastUpdate("Tracker-Crypto", "update-Tracker-Crypto");
         });
