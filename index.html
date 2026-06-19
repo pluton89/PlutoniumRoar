@@ -272,7 +272,7 @@
         .promo-gomining-container {
             display: block;
             width: fit-content;
-            margin: 0 auto 40px auto; /* Marge réduite pour laisser de la place au bloc en dessous */
+            margin: 0 auto 40px auto; 
             position: relative;
             text-decoration: none;
             cursor: pointer;
@@ -324,7 +324,7 @@
             position: relative;
             text-decoration: none;
             cursor: pointer;
-            animation: floatTKR 2.5s infinite ease-in-out; /* Effet flottant fluide */
+            animation: floatTKR 2.5s infinite ease-in-out; 
             transition: filter 0.3s;
         }
 
@@ -333,11 +333,12 @@
         }
 
         .pub-tkr-img {
-            max-width: 380px;
+            max-width: 350px; /* Dimension ajustée pour que le GIF soit bien visible */
             width: 100%;
+            height: auto;
             border-radius: 16px;
-            border: 2px solid #ff4a4a; /* Rouge pour le style publicitaire */
-            box-shadow: 0 10px 30px rgba(255, 74, 74, 0.3);
+            border: 2px solid #ff4a4a; 
+            box-shadow: 0 10px 30px rgba(255, 74, 74, 0.4);
             display: block;
         }
 
@@ -361,7 +362,7 @@
 
         @keyframes floatTKR {
             0%, 100% { transform: translateY(0); }
-            50% { transform: translateY(-12px); } /* Flottaison verticale */
+            50% { transform: translateY(-12px); } 
         }
         /* ----------------------------------- */
 
@@ -445,15 +446,16 @@
     </section>
 
     <section id="support">
+        <!-- BLOC PROMO GOMINING -->
         <a href="https://gomining.com/?ref=11TSn" target="_blank" class="promo-gomining-container">
             <img src="Gomining.jpeg" alt="Promotion GoMining" class="promo-gomining-img">
             <span class="promo-gomining-text">Promotion</span>
         </a>
 
-        <!-- BLOC PUBLICITAIRE FLOTTANT TKR RP PLACÉ ICI -->
+        <!-- BLOC PUBLICITAIRE FLOTTANT TKR RP PLACÉ EN DESSOUS AVEC LE GIF -->
         <a href="https://pluton89.github.io/Teste-Website-TKR-RP-FIVE-M-/" target="_blank" class="pub-tkr-container">
-            <img src="copy_BF8F92BC-03DB-4F31-8B65-816DCA284841.jpg" alt="Publicité TKR RP" class="pub-tkr-img">
-            <span class="pub-tkr-text">PUB TKR RP</span>
+            <img src="tkr.jpg" alt="Publicité TKR RP" class="pub-tkr-img">
+            <span class="pub-tkr-text">TKR RP</span>
         </a>
 
         <h2>Support</h2>
