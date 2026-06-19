@@ -268,15 +268,14 @@
         .btn-close-streaming { background: transparent; border: 2px solid #ff4a4a; color: #ff4a4a; padding: 10px 25px; font-weight: bold; border-radius: 6px; cursor: pointer; text-transform: uppercase; font-size: 0.85rem; transition: 0.3s; }
         .btn-close-streaming:hover { background: #ff4a4a; color: #fff; box-shadow: 0 0 15px rgba(255, 74, 74, 0.4); }
 
-        /* --- NOUVEAU BLOC PROMO GOMINING --- */
+        /* --- BLOC PROMO GOMINING --- */
         .promo-gomining-container {
             display: block;
             width: fit-content;
-            margin: 0 auto 60px auto;
+            margin: 0 auto 40px auto; /* Marge réduite pour laisser de la place au bloc en dessous */
             position: relative;
             text-decoration: none;
             cursor: pointer;
-            /* Zoom/Dezoom x2 speed (0.8s est très rapide et dynamique) */
             animation: zoomFast 0.8s infinite ease-in-out;
             transition: filter 0.3s;
         }
@@ -286,7 +285,7 @@
         }
 
         .promo-gomining-img {
-            max-width: 380px; /* Taille ajustable selon besoin */
+            max-width: 380px;
             width: 100%;
             border-radius: 16px;
             border: 2px solid #9d00ff;
@@ -296,7 +295,7 @@
 
         .promo-gomining-text {
             position: absolute;
-            bottom: -15px; /* Fait dépasser le texte sous l'image */
+            bottom: -15px;
             left: 50%;
             transform: translateX(-50%);
             background: linear-gradient(135deg, #ff4a4a, #9d00ff);
@@ -314,7 +313,55 @@
 
         @keyframes zoomFast {
             0%, 100% { transform: scale(1); }
-            50% { transform: scale(1.05); } /* Valeur de zoom */
+            50% { transform: scale(1.05); }
+        }
+
+        /* --- NOUVEAU BLOC PUB TKR RP (AVEC EFFET DE FLOTTAISON) --- */
+        .pub-tkr-container {
+            display: block;
+            width: fit-content;
+            margin: 0 auto 60px auto;
+            position: relative;
+            text-decoration: none;
+            cursor: pointer;
+            animation: floatTKR 2.5s infinite ease-in-out; /* Effet flottant fluide */
+            transition: filter 0.3s;
+        }
+
+        .pub-tkr-container:hover {
+            filter: brightness(1.2);
+        }
+
+        .pub-tkr-img {
+            max-width: 380px;
+            width: 100%;
+            border-radius: 16px;
+            border: 2px solid #ff4a4a; /* Rouge pour le style publicitaire */
+            box-shadow: 0 10px 30px rgba(255, 74, 74, 0.3);
+            display: block;
+        }
+
+        .pub-tkr-text {
+            position: absolute;
+            bottom: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: linear-gradient(135deg, #ff4a4a, #b30000);
+            color: #fff;
+            padding: 8px 24px;
+            border-radius: 30px;
+            font-weight: 900;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            font-size: 0.95rem;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.6);
+            white-space: nowrap;
+            z-index: 10;
+        }
+
+        @keyframes floatTKR {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-12px); } /* Flottaison verticale */
         }
         /* ----------------------------------- */
 
@@ -377,6 +424,7 @@
     <section id="projets">
         <h2>Mes Projets</h2>
         <a href="https://pluton89.github.io/demande-de-projet/" class="btn-main">Demande de projet</a>
+        
         <div class="grid">
             <div class="card">
                 <div class="card-content">
@@ -395,15 +443,7 @@
                 <a href="https://pluton89.github.io/Tracker-Crypto/" target="_blank" class="btn-card">VOIR LE SITE</a>
             </div>
             
-            <div class="card">
-                <div class="card-content">
-                    <h3>TKR RP FIVE M</h3>
-                    <p class="pub-bounce-red">PUB</p>
-                    <div class="update-badge" id="update-Teste-Website-TKR-RP-FIVE-M-">Vérification...</div>
-                </div>
-                <a href="https://pluton89.github.io/Teste-Website-TKR-RP-FIVE-M-/" target="_blank" class="btn-card">rejoin l'aventure</a>
-            </div>
-            
+            <div class="card"><div class="card-content"><h3>inaccessible</h3><p>En cours...</p><div class="update-badge inactive">En attente</div></div></div>
             <div class="card"><div class="card-content"><h3>inaccessible</h3><p>En cours...</p><div class="update-badge inactive">En attente</div></div></div>
             <div class="card"><div class="card-content"><h3>inaccessible</h3><p>En cours...</p><div class="update-badge inactive">En attente</div></div></div>
             <div class="card"><div class="card-content"><h3>inaccessible</h3><p>En cours...</p><div class="update-badge inactive">En attente</div></div></div>
@@ -417,6 +457,13 @@
             <img src="Gomining.jpeg" alt="Promotion GoMining" class="promo-gomining-img">
             <span class="promo-gomining-text">Promotion</span>
         </a>
+
+        <!-- BLOC PUBLICITAIRE FLOTTANT TKR RP PLACÉ ICI -->
+        <a href="https://pluton89.github.io/Teste-Website-TKR-RP-FIVE-M-/" target="_blank" class="pub-tkr-container">
+            <img src="copy_BF8F92BC-03DB-4F31-8B65-816DCA284841.jpg" alt="Publicité TKR RP" class="pub-tkr-img">
+            <span class="pub-tkr-text">PUB TKR RP</span>
+        </a>
+
         <h2>Support</h2>
         <div class="support-info">
             <div><span>EMAIL:</span> kakahuette89@gmail.com</div>
@@ -494,7 +541,6 @@
             fetchLastUpdate("pluton89.github.io", "update-site");
             fetchLastUpdate("BUILD-HELPER-MC-3D", "update-BUILD-HELPER-MC-3D");
             fetchLastUpdate("Tracker-Crypto", "update-Tracker-Crypto");
-            fetchLastUpdate("Teste-Website-TKR-RP-FIVE-M-", "update-Teste-Website-TKR-RP-FIVE-M-");
         });
 
         // --- SCRIPT DE LA SOURIS : PETITS LOGOS PLAYSTATION ---
@@ -557,7 +603,7 @@
                 if (particlesArray[i].opacity <= 0.01 || particlesArray[i].size <= 1) {
                     particlesArray.splice(i, 1);
                     i--;
-                }
+                    }
             }
         }
 
