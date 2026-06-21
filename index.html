@@ -444,6 +444,62 @@
                 </div>
                 <a href="https://pluton89.github.io/Tracker-Crypto/" target="_blank" class="btn-card">VOIR LE SITE</a>
             </div>
+            <style>
+  /* Centrage des éléments dans la carte */
+  .card-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    font-family: sans-serif; /* Optionnel : juste pour le style */
+  }
+
+  /* Style du texte ajouté */
+  .assistant-title {
+    font-weight: bold;
+    margin: 10px 0;
+    font-size: 1.1rem;
+  }
+
+  /* Conteneur et animation de la flèche qui tourne */
+  .loader-container {
+    margin: 15px 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .rotating-arrow {
+    width: 32px;
+    height: 32px;
+    animation: spin 1.2s linear infinite;
+  }
+
+  /* Animation de rotation à 360 degrés */
+  @keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+  }
+</style>
+
+<div class="card">
+  <div class="card-content">
+    <h3>inaccessible</h3>
+    
+    <div class="assistant-title">Assistant Blender IA</div>
+    
+    <p>En cours...</p>
+    
+    <div class="loader-container">
+      <svg class="rotating-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <polyline points="23 4 23 10 17 10"></polyline>
+        <path d="M20.49 15a9 9 0 1 1-2.12-9.36L23 10"></path>
+      </svg>
+    </div>
+    
+    <div class="update-badge inactive">En attente</div>
+  </div>
+</div>
         </div>
     </section>
 
