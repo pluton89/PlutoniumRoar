@@ -81,6 +81,7 @@
             text-transform: uppercase; 
             letter-spacing: 3px; 
             text-shadow: 0 0 15px rgba(0, 255, 204, 0.3);
+            text-decoration: none;
         }
         
         nav ul { display: flex; list-style: none; align-items: center; }
@@ -316,55 +317,20 @@
             50% { transform: scale(1.05); }
         }
 
-        /* --- NOUVEAU BLOC PUB TKR RP (AVEC EFFET DE FLOTTAISON) --- */
-        .pub-tkr-container {
-            display: block;
-            width: fit-content;
-            margin: 0 auto 60px auto;
-            position: relative;
-            text-decoration: none;
-            cursor: pointer;
-            animation: floatTKR 2.5s infinite ease-in-out; 
-            transition: filter 0.3s;
+        /* Style spécifique pour centrer le logo robot dans la carte */
+        .card-content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
         }
 
-        .pub-tkr-container:hover {
-            filter: brightness(1.2);
+        .avatar {
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
         }
-
-        .pub-tkr-img {
-            max-width: 350px; 
-            width: 100%;
-            height: auto;
-            border-radius: 16px;
-            border: 2px solid #ff4a4a; 
-            box-shadow: 0 10px 30px rgba(255, 74, 74, 0.4);
-            display: block;
-        }
-
-        .pub-tkr-text {
-            position: absolute;
-            bottom: -15px;
-            left: 50%;
-            transform: translateX(-50%);
-            background: linear-gradient(135deg, #ff4a4a, #b30000);
-            color: #fff;
-            padding: 8px 24px;
-            border-radius: 30px;
-            font-weight: 900;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-            font-size: 0.95rem;
-            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.6);
-            white-space: nowrap;
-            z-index: 10;
-        }
-
-        @keyframes floatTKR {
-            0%, 100% { transform: translateY(0); }
-            50% { transform: translateY(-12px); } 
-        }
-        /* ----------------------------------- */
 
         @media (max-width: 900px) { nav .update-badge { display: none; } }
     </style>
@@ -382,7 +348,7 @@
     </div>
 
     <nav>
-        <div class="logo">plutoniumROAR</div>
+        <a href="https://pluton89.github.io/PlutoniumRoar/#projets" class="logo">plutoniumROAR</a>
         <div class="update-badge" id="update-site">Vérification...</div>
         <ul>
             <li><a href="#projets">PROJETS</a></li>
@@ -409,19 +375,6 @@
         </div>
     </div>
 
-    <div class="streaming-overlay" id="tkrMenu">
-        <div class="streaming-content">
-            <h2>TKR RP</h2>
-            <p style="color: #94a3b8; margin-top: 20px; font-size: 1.1rem;">Nouveau serveur ouvre c'est porte TRK RP click sur le lien pour en savoir plus</p>
-            <div class="streaming-links-grid">
-                <a href="https://pluton89.github.io/Teste-Website-TKR-RP-FIVE-M-/" target="_blank" class="streaming-link-item" style="border-color: #00ffcc; color: #00ffcc;">
-                    <i class="fa-solid fa-ticket"></i> TICKET (VOIR LE SERVEUR)
-                </a>
-            </div>
-            <button class="btn-close-streaming" id="closeTKR">Fermer</button>
-        </div>
-    </div>
-
     <section id="projets">
         <h2>Mes Projets</h2>
         <a href="https://pluton89.github.io/demande-de-projet/" class="btn-main">Demande de projet</a>
@@ -435,71 +388,26 @@
                 </div>
                 <a href="https://pluton89.github.io/BUILD-HELPER-MC-3D/" target="_blank" class="btn-card">VOIR LE SITE</a>
             </div>
+            
             <div class="card">
                 <div class="card-content">
-                    <div class="w-8 h-8 rounded bg-gradient-to-tr from-emerald-400 to-emerald-600 flex items-center justify-center font-bold text-black text-xs tracking-wider shadow-lg shadow-emerald-500/10" style="width: 32px; height: 32px; border-radius: 4px; background: linear-gradient(to top right, #34d399, #059669); display: flex; align-items: center; justify-content: center; font-weight: bold; color: #000; font-size: 0.75rem; letter-spacing: 0.05em; box-shadow: 0 10px 15px -3px rgba(16, 185, 129, 0.1);">TC</div>
+                    <div style="width: 32px; height: 32px; border-radius: 4px; background: linear-gradient(to top right, #34d399, #059669); display: flex; align-items: center; justify-content: center; font-weight: bold; color: #000; font-size: 0.75rem; letter-spacing: 0.05em; box-shadow: 0 10px 15px -3px rgba(16, 185, 129, 0.1);">TC</div>
                     <h3>Tracker Crypto</h3>
-                    <p>tracking du marché crypto en temps réel plus analyse signaux pars ia </p>
-                    <div class="update-badge" id="update-Tracker-Crypto">Vérification...</div>
+                    <p>tracking du marché crypto en temps réel plus analyse signaux pars ia</p>
+                    <div class="update-badge" id="update-Tracker-Crypto">ACTIF</div>
                 </div>
                 <a href="https://pluton89.github.io/Tracker-Crypto/" target="_blank" class="btn-card">VOIR LE SITE</a>
             </div>
-            <style>
-  /* Centrage des éléments dans la carte */
-  .card-content {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
-    font-family: sans-serif; /* Optionnel : juste pour le style */
-  }
-
-  /* Style du texte ajouté */
-  .assistant-title {
-    font-weight: bold;
-    margin: 10px 0;
-    font-size: 1.1rem;
-  }
-
-  /* Conteneur et animation de la flèche qui tourne */
-  .loader-container {
-    margin: 15px 0;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
-
-  .rotating-arrow {
-    width: 32px;
-    height: 32px;
-    animation: spin 1.2s linear infinite;
-  }
-
-  /* Animation de rotation à 360 degrés */
-  @keyframes spin {
-    0% { transform: rotate(0deg); }
-    100% { transform: rotate(360deg); }
-  }
-</style>
-
-<div class="card">
-  <div class="card-content">
-    <h3>Assistant Blender IA</h3>
-    
-    <div class="assistant-title"></div>
-    
-    <p>En cours...</p>
-    
-    <div class="loader-container">
-      <svg class="rotating-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-        <polyline points="23 4 23 10 17 10"></polyline>
-        <path d="M20.49 15a9 9 0 1 1-2.12-9.36L23 10"></path>
-      </svg>
-    </div>
-    
-    <div class="update-badge inactive">En attente</div>
-  </div>
-</div>
+            
+            <div class="card">
+                <div class="card-content">
+                    <div class="avatar" style="width: 32px; height: 32px; border-radius: 4px; background: linear-gradient(to top right, #ff9429, #e87d0d); display: flex; align-items: center; justify-content: center; color: #fff; font-size: 0.95rem; box-shadow: 0 10px 15px -3px rgba(232, 125, 13, 0.2);"><i class="fa-solid fa-robot"></i></div>
+                    <h3>Assistant Blender IA</h3>
+                    <p>Votre meilleur assisant blender !! pour mieux apprendre</p>
+                    <div class="update-badge" id="update-Blender-Master">Vérification...</div>
+                </div>
+                <a href="https://pluton89.github.io/Blender-Master/" target="_blank" class="btn-card">VOIR LE SITE</a>
+            </div>
         </div>
     </section>
 
@@ -507,11 +415,6 @@
         <a href="https://gomining.com/?ref=11TSn" target="_blank" class="promo-gomining-container">
             <img src="./Gomining.jpeg" alt="Promotion GoMining" class="promo-gomining-img">
             <span class="promo-gomining-text">Promotion</span>
-        </a>
-
-        <a href="https://pluton89.github.io/Teste-Website-TKR-RP-FIVE-M-/" target="_blank" class="pub-tkr-container">
-            <img src="./tkr.gif" alt="Publicité TKR RP" class="pub-tkr-img">
-            <span class="pub-tkr-text">TKR RP</span>
         </a>
 
         <h2>Support</h2>
@@ -550,22 +453,6 @@
             });
         }
 
-        // --- GESTION DU MENU TKR RP ---
-        const tkrMenu = document.getElementById('tkrMenu');
-        const openTKR = document.getElementById('openTKR');
-        const closeTKR = document.getElementById('closeTKR');
-
-        if (openTKR && tkrMenu && closeTKR) {
-            openTKR.addEventListener('click', () => {
-                tkrMenu.style.display = 'flex';
-                document.body.style.overflow = 'hidden';
-            });
-            closeTKR.addEventListener('click', () => {
-                tkrMenu.style.display = 'none';
-                document.body.style.overflow = 'auto';
-            });
-        }
-
         // --- GESTION DES BADGES DE MISE À JOUR GITHUB ---
         async function fetchLastUpdate(repoName, elementId) {
             const badge = document.getElementById(elementId);
@@ -583,7 +470,10 @@
 
                 badge.innerHTML = `A jour le ${dateFormatee} à ${heureFormatee}`;
             } catch (error) {
-                badge.innerText = "Web à jour";
+                // Pour Tracker-Crypto on garde le texte ACTIF fixé
+                if(elementId !== "update-Tracker-Crypto") {
+                    badge.innerText = "Web à jour";
+                }
             }
         }
 
@@ -591,6 +481,7 @@
             fetchLastUpdate("pluton89.github.io", "update-site");
             fetchLastUpdate("BUILD-HELPER-MC-3D", "update-BUILD-HELPER-MC-3D");
             fetchLastUpdate("Tracker-Crypto", "update-Tracker-Crypto");
+            fetchLastUpdate("Blender-Master", "update-Blender-Master");
         });
 
         // --- SCRIPT DE LA SOURIS : PETITS LOGOS PLAYSTATION ---
@@ -653,7 +544,7 @@
                 if (particlesArray[i].opacity <= 0.01 || particlesArray[i].size <= 1) {
                     particlesArray.splice(i, 1);
                     i--;
-                    }
+                }
             }
         }
 
